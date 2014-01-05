@@ -15,25 +15,33 @@ namespace toko.admin
 {
     public partial class FMenu : Form
     {
-        CConnection _connect = new CConnection();
-        CTools _tools = new CTools();
+        readonly CConnection _connect = new CConnection();
+        readonly CTools _tools = new CTools();
         private MySqlConnection _connection;
-        private string sqlQuery;
+        private string _sqlQuery;
         private readonly string _configurationManager = Properties.Settings.Default.Setting;
 
         public FMenu()
         {
             InitializeComponent();
+            label3.TabIndex = 0;
+            txtNama.TabIndex = 1;
+            label4.TabIndex = 2;
+            txtNamaForm.TabIndex = 3;
+            btnSimpan.TabIndex = 4;
         }
         
         private void btnSimpan_Click(object sender, EventArgs e)
         {
             Control theControl = null;
-            sqlQuery = "";
+
             string errMsg = "";
             _connection = _connect.Connect(_configurationManager, ref errMsg, "123");
 
             int maxid = _connect.GetMaxId(_connection, "db_toko.tmenu", "id") + 1;
+
+            _sqlQuery = "insert into db_toko.tMenu values (" + maxid + ", '" + txtNama.Text + "', '" + txtNamaForm.Text +
+                        "')";
 
             if (!string.IsNullOrEmpty(errMsg))
             {
@@ -49,9 +57,8 @@ namespace toko.admin
             }
             try
             {
-                _connect.Insertion(
-                    "insert into db_toko.tMenu values (" + maxid + ", '" + txtNama.Text + "', '" + txtNamaForm.Text +
-                    "')", _connection);
+                _connect.Insertion(_sqlQuery
+                    , _connection);
             }
             catch (MySqlException ex)
             {
@@ -60,6 +67,13 @@ namespace toko.admin
                 return;
             }
             _connection.Close();
+        }
+
+        private void FMenu_Load(object sender, EventArgs e)
+        {
+            
+
+
         }
     }
 }

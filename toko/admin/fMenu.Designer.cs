@@ -155,6 +155,7 @@
             this.Controls.Add(this.txtNama);
             this.Name = "FMenu";
             this.Text = "SETTING MENU";
+            this.Load += new System.EventHandler(this.FMenu_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
