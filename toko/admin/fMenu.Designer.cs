@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lvDaftarUser = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
@@ -39,26 +39,30 @@
             this.btnSimpan = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtNama = new System.Windows.Forms.TextBox();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lvDaftarUser
             // 
             this.lvDaftarUser.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
             this.columnHeader2,
-            this.columnHeader3});
+            this.columnHeader3,
+            this.columnHeader1});
             this.lvDaftarUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lvDaftarUser.FullRowSelect = true;
+            this.lvDaftarUser.GridLines = true;
             this.lvDaftarUser.Location = new System.Drawing.Point(3, 31);
             this.lvDaftarUser.Name = "lvDaftarUser";
             this.lvDaftarUser.Size = new System.Drawing.Size(744, 334);
             this.lvDaftarUser.TabIndex = 1;
             this.lvDaftarUser.UseCompatibleStateImageBehavior = false;
             this.lvDaftarUser.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "ID";
+            this.lvDaftarUser.ColumnWidthChanging += new System.Windows.Forms.ColumnWidthChangingEventHandler(this.lvDaftarUser_ColumnWidthChanging);
+            this.lvDaftarUser.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lvDaftarUser_MouseClick);
             // 
             // columnHeader2
             // 
@@ -66,7 +70,7 @@
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Jabatan";
+            this.columnHeader3.Text = "Form/Class";
             this.columnHeader3.Width = 93;
             // 
             // label4
@@ -108,9 +112,9 @@
             this.label2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label2.Location = new System.Drawing.Point(3, 16);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 15);
+            this.label2.Size = new System.Drawing.Size(79, 15);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Daftar User";
+            this.label2.Text = "Daftar Menu";
             // 
             // btnSimpan
             // 
@@ -142,6 +146,24 @@
             this.txtNama.Size = new System.Drawing.Size(373, 27);
             this.txtNama.TabIndex = 14;
             // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Width = 0;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.deleteToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(153, 48);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.deleteToolStripMenuItem.Text = "Delete";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
             // FMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -158,6 +180,7 @@
             this.Load += new System.EventHandler(this.FMenu_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,7 +189,6 @@
         #endregion
 
         private System.Windows.Forms.ListView lvDaftarUser;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.Label label4;
@@ -176,6 +198,9 @@
         private System.Windows.Forms.Button btnSimpan;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txtNama;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
 
     }
 }
