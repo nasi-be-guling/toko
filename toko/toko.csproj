@@ -67,6 +67,12 @@
     <Compile Include="admin\fRole.Designer.cs">
       <DependentUpon>fRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="admin\fRoleDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="admin\fRoleDetail.Designer.cs">
+      <DependentUpon>fRoleDetail.cs</DependentUpon>
+    </Compile>
     <Compile Include="admin\fUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="admin\fRole.resx">
       <DependentUpon>fRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="admin\fRoleDetail.resx">
+      <DependentUpon>fRoleDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="admin\fUser.resx">
       <DependentUpon>fUser.cs</DependentUpon>
